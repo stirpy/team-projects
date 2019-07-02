@@ -13,6 +13,9 @@
 }
 .button {
 }
+.primary_button {
+  color:#FFFFFF;
+}
 .heading_1 {
   font-family:'ArialMT', 'Arial';
   font-weight:bold;
@@ -61,6 +64,8 @@
 .paragraph {
   text-align:left;
 }
+.line {
+}
 .text_field {
   color:#000000;
   text-align:left;
@@ -73,7 +78,12 @@
 }
 .image {
 }
+.placeholder {
+}
 .droplist {
   color:#000000;
+  text-align:left;
+}
+.checkbox {
   text-align:left;
 }
