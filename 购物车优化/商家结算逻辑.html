@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>商家结算逻辑</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/商家结算逻辑/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/prototypePre.js"></script>
+    <script src="data/document.js"></script>
+    <script src="resources/scripts/prototypePost.js"></script>
+    <script src="files/商家结算逻辑/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u127" class="ax_default paragraph">
+        <div id="u127_div" class=""></div>
+        <div id="u127_text" class="text ">
+          <p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">红包结算：</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">（1）红包作为平台补贴资源，需要在商家结算的时候补偿给商家。</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">a、佣金结算时计算佣金的基数为订单实付金额+平摊给商家的红包金额</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u128" class="ax_default paragraph">
+        <div id="u128_div" class=""></div>
+        <div id="u128_text" class="text ">
+          <p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">结算规则修改：</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">（1）维度：订单维度</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">（2）服务费计算规则：</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">服务费=（商品总金额-优惠金额</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC';color:#FF0000;">+红包金额</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">）*佣金比例</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">优惠金额=店铺优惠金额+平台优惠金额</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC';color:#FF0000;">+红包金额</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';"><br></span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">结算金额=订单实付金额-服务费</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC';color:#FF0000;">+红包金额</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">订单实付金额=商品总额-优惠金额+运费</span></p><p><span style="font-family:'PingFangSC-Regular', 'PingFang SC';">结算时间：每日凌晨进行结算任务</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>购物车1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/购物车1/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/prototypePre.js"></script>
+    <script src="data/document.js"></script>
+    <script src="resources/scripts/prototypePost.js"></script>
+    <script src="files/购物车1/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u0" class="ax_default paragraph">
+        <div id="u0_div" class=""></div>
+        <div id="u0_text" class="text ">
+          <p><span>购物车分为购物车头部信息区域、商品模块、失效商品、结算模块</span></p><p><span>头部信息区域：分为信息提示区、商品删除icon</span></p><p><span>（1）信息提示区：无信息时为空不展示内容；若有则展示提示信息，这一版增加两种提示逻辑</span></p><p><span>a、促销商品库存不足时提示：加入购物车中的促销商品有即将售罄的（先写死小于等于20时提示）</span></p><p><span>b、促销商品即将到期提示：加入购物车中的商品有促销活动即将到期（1小时）</span></p><p><span>提示优先级：b&gt;a</span></p><p><span>（2）商品删除icon：点击删除icon</span></p><p><span>a、若未勾选商品，则浮层提示“您尚未勾选商品”，两秒后浮层自动消失</span></p><p><span>b、若已勾选商品，则弹窗提示“您是否要删除已勾选的商品”，点击“删除”删除商品，点击“取消”关闭弹窗不删除商品</span></p><p><span><br></span></p><p><span><br></span></p><p><span>商品模块：店铺信息、领券按钮、促销信息、勾选框、商品信息</span></p><p><span>（1）店铺信息：店铺logo+店铺名（自营为特殊logo，c店统一icon，仅以名字区分）</span></p><p><span style="color:#CCCCCC;">（2）领券：点击领券，展示领券弹窗，业务逻辑见右图（这一期暂时不做）</span></p><p><span>（3）促销信息：目前常用的促销工具有单商品满减（第二件xx元），今日特卖，拍立减、活动促销、n元n件；今日特卖、拍立减、活动促销都是到商品维度的立减活动，暂不做促销相关逻辑；本版本只计算单商品满减（满件）、n元n件优惠逻辑。</span></p><p><span>a、</span><span style="color:#FF0000;">单品满减（梯度）</span><span>：提示信息及优惠计算逻辑都指的是勾选状态时，在购物车中但未勾选时不计算相关逻辑</span></p><p><span>&nbsp;&nbsp; &nbsp; 未满件时：展示满减小标，提示语为“单品满x件减xx.xx元，还差n件”，x为活动设置的数量，xx.xx为活动设置减的金额，n为当前数量和x间的差值。点击“去凑单”跳转至配置的活动页。</span></p><p><span>&nbsp;&nbsp; &nbsp; 已满件时：即当前商品数量大于等于活动设置的数量，展示满减小标，提示语为“单品已满x件，已减xx.xx元”，x为活动设置的数量，xx.xx为活动设置减的金额。点击“再逛逛”跳转至配置的活动页。</span></p><p><span>若同一商品有多个梯度，则数量满足第一梯度但未满下一梯度时，提示“单品已满x件，已减xx元，再购z件，可减y元”，z为下一梯度配置的件数-x，y为下一梯度配置的减金额。</span></p><p><span>b、n元n件：同一活动的放在一起，提示信息及优惠计算逻辑都指的是勾选状态时，在购物车中但未勾选时不计算相关逻辑。</span></p><p><span>&nbsp;&nbsp;&nbsp; 未满件时：展示n元任选小标，提示语为“再购x件，即享【xxxxxxx】”，x为差值，【】中的为活动信息</span></p><p><span>&nbsp;&nbsp;&nbsp; 已满件时：展示n元任选小标，提示语为“已选x件，已享【xxxxxxx】”，x为勾选的n元n件的商品数，【】中的为活动信息</span></p><p><span><br></span></p><p><span><br></span></p><p><span>（4）勾选框：分为店铺勾选框、商品勾选框、全选框</span></p><p><span>a、商品勾选框：单个商品的勾选与去勾选，若某个店铺下的所有商品都一个个勾选了，则自动勾选店铺勾选框</span></p><p><span>b、店铺勾选：点击店铺勾选框，则勾选所有该商家下的所有的商品，再点击则去勾选该商家所有商品。若勾选后，使用商品勾选框去勾选某一个商品，则自动去勾选店铺勾选框</span></p><p><span>c、全选框：点击全选框，则勾选购物车里所有的商品（失效商品除外），再点击则去勾选购物车中所有商品；勾选后若用商品勾选框或店铺勾选框去勾选某一商品，则自动去勾选全选框。若购物车中商品已全部勾选，则自动勾选全选款。</span></p><p><span><br></span></p><p><span>（5）商品信息：包括sku图片、商品名称、sku属性、价格、数量加减框、删除手势</span></p><p><span>a、sku图片：商品的sku图（取的主图？保持现有取值逻辑）</span></p><p><span>b、商品名称：固定宽度，最多两行，超出以“...”替代</span></p><p><span>c、sku属性：若有分组则展示sku属性，多个属性则以“，”分隔，固定宽度，超出以“...”替代，点击sku属性区域弹窗展示sku选择框</span></p><p><span>d、价格：仅展示实际售价</span></p><p><span>e、数量加减框：包含“+”、“-”、填写框、限购逻辑</span></p><p><span>1）“+”：点击一次增加一个，最高99，到99时“+”置灰不可点；限购校验，若点击增加时超过限购数量则浮层提示“该商品限购x件哦~”，库存校验，若已到最大库存则浮层提示“没有足够库存了哦~”</span></p><p><span>2）“-”：点击一次减少一个；最低1，到1时“-”置灰不可点</span></p><p><span>3）填写框（app做，小程序？）：点击填写区，弹窗数字键盘；输入数字后依次进行如下校验：限购校验，若超过限购数量则浮层提示“该商品限购x件哦~”，库存校验，若超过最大可用库存，则浮层提示“没有足够库存了哦~”；99上限提醒，输入超过99时浮层提示“最多只能买99件哦~”</span></p><p><span>f、删除手势：商品区域左滑展示删除按钮，点击删除按钮直接删除该条商品</span></p><p><span>g、点击跳转：商品区域除了特定点击区域（sku、勾选框、数量加减框）外点击后都可跳转至该sku对应的商品详情页</span></p><p><span><br></span></p><p><span><br></span></p><p><span>（6）失效商品（</span><span style="color:#FF0000;">现有的逻辑</span><span>）：包括失效商品信息、操作</span></p><p><span>a、失效商品信息：失效tag、sku图片、商品名称、sku属性、价格、数量加减框</span></p><p><span>失效商品定义：sku级别、包括下架、售罄、删除状态的商品</span></p><p><span>失效商品区域均不可点击</span></p><p><span>b、操作：清除失效商品：点击弹窗提示“是否清除所有的失效商品？”，点击取消关闭弹窗不删除失效商品，点击清除清空所有失效商品。</span></p><p><span><br></span></p><p><span><br></span></p><p><span>（7）结算区块：包括全选框、合计、优惠减、不含运费提示、结算按钮</span></p><p><span>a、全选框：同勾选框</span></p><p><span>b、合计：商品总额-优惠减金额，精确到小数后两位</span></p><p><span>c、优惠减：优惠减金额，本版本只计算多件减优惠活动（对应后台单商品满减），n元n件（对应后台n元n减），精确到小数后两位</span></p><p><span>特殊：n元n件优惠计算逻辑</span></p><p><span>1）未满时，优惠不计算，按商品原价算</span></p><p><span>2）刚好n件时，优惠金额=商品总价-“n元”</span></p><p><span>3）大于n件时，商品按价格从高到低排序，取价高的n件作为n元n件优惠商品，剩下的商品按原售价算，本版本只计算一次n元n件（即商品为2n、3n···时只计算一次优惠）</span></p><p><span>d、不含运费提示：提示语</span></p><p><span>e、结算按钮：结算商品数量根据勾选的商品数量实时变化，超过99（大于99）时，展示“99+”</span></p><p><span>点击结算进行如下校验：</span></p><p><span>1)用户登录状态校验，若登录状态过期，则展示授权登录弹窗</span></p><p><span>2）若未勾选商品，则结算按钮置灰不可点击</span></p><p><span>3）校验勾选的商品的销售状态，包括上下架状态、库存、价格。</span></p><p><span>a、上下架状态变化，弹窗提示“对不起，您挑中的商品部分已下架啦~请刷新购物车”，点击“刷新”按钮或“x”关闭弹窗刷新购物车。</span></p><p><span>b、库存变化，如售罄或库存不足，弹窗提示“对不起，您挑中的商品部分库存发生了变化，请刷新购物车”，点击“刷新”或“x”关闭弹窗刷新购物车</span></p><p><span>c、价格变化，弹窗提示“对不起，您挑中的商品部分价格发生变化，请刷新购物车”，点击“刷新”或“x”关闭弹窗刷新购物车。</span></p><p><span>4）校验勾选商品的促销状态</span></p><p><span>a、促销活动已结束，弹窗提示“对不起，您选中的商品部分促销活动已结束，请刷新购物车”点击“刷新”按钮或“x”关闭弹窗刷新购物车。</span></p><p><span>以上校验通过则跳转至确认订单页。</span></p><p><span><br></span></p><p><span><br></span></p><p><span>（8）排序逻辑</span></p><p><span>a、店铺排序逻辑：根据商品加入购物车的时间倒序排序，自营店保持至少排在第二位，失效商品始终排在最后</span></p><p><span>b、店铺内商品排序逻辑：根据商品加入购物车的时间倒序排序</span></p><p><span>c、优惠活动归拢逻辑：统一活动的商品归拢在一起展示，顺序按照该活动下最近加入购物车的商品所在位置排序</span></p><p><span>d、失效商品排序：加入购物车的时间倒序排序</span></p><p><span><br></span></p><p><span>（9）购物车刷新：</span></p><p><span>a、下拉刷新</span></p><p><span>b、双击底部购物车icon刷新（app有、小程序无）</span></p><p><span><br></span></p><p><span>（10）回到顶部：购物车中商品过多时，往下拉到第二屏时展示“^”按钮，点击回到最顶部</span></p><p><span><br></span></p><p><span><br></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Group) -->
+      <div id="u1" class="ax_default" data-left="886" data-top="265" data-width="161" data-height="61">
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u2" class="ax_default box_2">
+          <div id="u2_div" class=""></div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u3" class="ax_default heading_3">
+          <div id="u3_div" class=""></div>
+          <div id="u3_text" class="text ">
+            <p><span>您尚未勾选商品</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (Group) -->
+      <div id="u4" class="ax_default" data-left="1068" data-top="265" data-width="300" data-height="170">
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u5" class="ax_default box_1">
+          <div id="u5_div" class=""></div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u6" class="ax_default heading_3">
+          <div id="u6_div" class=""></div>
+          <div id="u6_text" class="text ">
+            <p><span>您是否要删除已勾选的商品？</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u7" class="ax_default primary_button">
+          <div id="u7_div" class=""></div>
+          <div id="u7_text" class="text ">
+            <p><span>删除</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u8" class="ax_default button">
+          <div id="u8_div" class=""></div>
+          <div id="u8_text" class="text ">
+            <p><span>取消</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (Group) -->
+      <div id="u9" class="ax_default" data-left="886" data-top="461" data-width="751" data-height="553">
+
+        <!-- Unnamed (Image) -->
+        <div id="u10" class="ax_default image">
+          <img id="u10_img" class="img " src="images/购物车1/u10.png"/>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u11" class="ax_default paragraph">
+          <div id="u11_div" class=""></div>
+          <div id="u11_text" class="text ">
+            <p><span>领券弹窗：分为空场景和可领场景</span></p><p><span>（1）空场景：当该店铺下无可用的优惠券（店铺优惠券&amp;平台级优惠券），展示空弹窗，提示“暂无可领的优惠券”，点击“回购物车”关闭弹窗，点击“X”关闭弹窗</span></p><p><span>（2）可领场景：</span></p><p><span>a、优惠券信息：券面额、券名称、使用范围及有效期</span></p><p><span>b、按钮：未领取时展示“点击领取”，点击后按钮文案变为“再逛逛”，点击“再逛逛”跳转至该券配置的对应活动页</span></p><p><span>（3）券排序逻辑：未领取&gt;已领取，领取状态相同根据后台配置的排序字段倒序排列</span></p><p><span>（4）只展示可领的和可用的券（失效的、已使用的不展示）</span></p><p><span>（5）限制领券弹窗高度，展示不下侧边滚动下拉展示</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Image) -->
+        <div id="u12" class="ax_default image">
+          <img id="u12_img" class="img " src="images/购物车1/u12.png"/>
+        </div>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u13" class="ax_default image">
+        <img id="u13_img" class="img " src="images/购物车1/u13.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u14" class="ax_default label">
+        <div id="u14_div" class=""></div>
+        <div id="u14_text" class="text ">
+          <p><span>回购物车</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u15" class="ax_default paragraph">
+        <div id="u15_div" class=""></div>
+        <div id="u15_text" class="text ">
+          <p><span>sku选择弹窗：</span></p><p><span>展示信息：sku图片、价格、已选sku、sku属性信息、数量选择、“确认”按钮、</span></p><p><span>（1）sku图片：取该sku对应的主图，根据选择的属性值不同变化</span></p><p><span>（2）价格分为售价和划线价，展示逻辑同详情页</span></p><p><span>（3）已选：展示已选的sku属性值，多个sku属性值则以“，”分隔开</span></p><p><span>（4）sku属性值：默认选择当前详情页sku的属性值，属性值选框定义最长宽度，超出则以...替代</span></p><p><span>（5）点击“确认”按钮，关闭sku选择弹窗，回到购物车页，如原购物车页是原味，100g的芒果干，现在在sku选择弹窗中选择了抹茶味，200g的芒果干，回到是抹茶味，200g的芒果干的详情页；数量保持不变，比如原购物车sku001是则现在选择了sku002回到购物车数量仍然是2</span></p><p><span>（6）点击sku选框外区域或“x”，关闭sku选框，不改动sku选择，即没有点击“确认”关闭弹窗，都不改变原购物车中sku属性选择。</span></p><p><span>（7）sku合并，购物车中有多个sku属于同一分组，sku弹窗中选择后，若选择后的sku在购物车中已有，则合并sku行，同时数量相加</span></p><p><span>（8）属性名排序：根据后台分组配置中的属性名顺序展示</span></p><p><span>（9）属性值排序：根据后台分组配置中属性值顺序进行先后展示</span></p><p><span>（10）sku弹窗固定高度，属性多则以侧边滚动条展示</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u16" class="ax_default image">
+        <img id="u16_img" class="img " src="images/购物车1/u16.png"/>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u17" class="ax_default image">
+        <img id="u17_img" class="img " src="images/购物车1/u17.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u18" class="ax_default paragraph">
+        <div id="u18_div" class=""></div>
+        <div id="u18_text" class="text ">
+          <p><span>数字键盘：点击完成完成输入关闭数字键盘</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u19" class="ax_default image">
+        <img id="u19_img" class="img " src="images/购物车1/u19.png"/>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u20" class="ax_default image">
+        <img id="u20_img" class="img " src="images/购物车1/u20.png"/>
+      </div>
+
+      <!-- Unnamed (Group) -->
+      <div id="u21" class="ax_default" data-left="886" data-top="1578" data-width="300" data-height="170">
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u22" class="ax_default box_1">
+          <div id="u22_div" class=""></div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u23" class="ax_default heading_3">
+          <div id="u23_div" class=""></div>
+          <div id="u23_text" class="text ">
+            <p><span>是否清除所有的失效商品？</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u24" class="ax_default primary_button">
+          <div id="u24_div" class=""></div>
+          <div id="u24_text" class="text ">
+            <p><span>清除</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u25" class="ax_default button">
+          <div id="u25_div" class=""></div>
+          <div id="u25_text" class="text ">
+            <p><span>取消</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u26" class="ax_default image">
+        <img id="u26_img" class="img " src="images/购物车1/u20.png"/>
+      </div>
+
+      <!-- Unnamed (Group) -->
+      <div id="u27" class="ax_default" data-left="886" data-top="1816" data-width="300" data-height="170">
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u28" class="ax_default box_1">
+          <div id="u28_div" class=""></div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u29" class="ax_default heading_3">
+          <div id="u29_div" class=""></div>
+          <div id="u29_text" class="text ">
+            <p><span>对不起，您挑中的商品部分已下架啦~请刷新购物车</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u30" class="ax_default primary_button">
+          <div id="u30_div" class=""></div>
+          <div id="u30_text" class="text ">
+            <p><span>刷新</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u31" class="ax_default image">
+        <img id="u31_img" class="img " src="images/购物车1/u20.png"/>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <div id="u32" class="ax_default image">
+        <img id="u32_img" class="img " src="images/购物车1/u32.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u33" class="ax_default label">
+        <div id="u33_div" class=""></div>
+        <div id="u33_text" class="text ">
+          <p><span>,，再购2件，可减20元</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
